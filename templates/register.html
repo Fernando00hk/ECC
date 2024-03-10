@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('{{ url_for("static", filename="natural.jpg") }}') center/cover no-repeat; /* Reemplaza la ruta según la ubicación de tu imagen de fondo */
+            background-attachment: fixed;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .login-container img {
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .login-container input {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Estilo adicional para el enlace o botón de registro */
+        .register-link {
+            margin-top: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* Estilo para el botón de casa en la esquina */
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(76, 175, 80, 0.7); /* Fondo semi-transparente verde */
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Botón de casa en la esquina -->
+<a href="{{ url_for('index') }}" class="home-button">&#127968;</a>
+
+<div class="login-container">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+    <h2>Registro</h2>
+    <form>
+        <input type="text" placeholder="Usuario" required>
+        <input type="password" placeholder="Contraseña" required>
+        <button type="submit">Registrarse</button>
+    </form>
+
+    <!-- Enlace o botón para redirigir a la página de inicio de sesión -->
+    <a href="{{ url_for('login') }}" class="register-link">Iniciar Sesión</a>
+</div>
+
+</body>
+</html>
