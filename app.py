@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 import secrets
+from flask import session
 
 app = Flask(__name__)
 app.secret_key = secrets.token_urlsafe(16)  # Necesario para el manejo de sesiones
@@ -37,9 +38,10 @@ def login():
 
     return render_template("login.html")
 
-@app.route('/logout')
+@app.route('/logout', methods=['GET', 'POST'])
 def logout():
-    # No necesitas eliminar la sesión de usuario aquí
+    # Eliminar la información de la sesión del usuario
+    session.pop('usuario_id', None)
     return redirect(url_for('index'))
 
 @app.route('/sesactiva')

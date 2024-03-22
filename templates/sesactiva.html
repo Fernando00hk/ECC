@@ -22,7 +22,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Cerrar Sesión</a>
+          <form action="{{ url_for('logout') }}" method="POST">
+            <button type="submit" class="btn btn-link nav-link">Cerrar Sesión</button>
+          </form>
         </li>
       </ul>
     </div>
