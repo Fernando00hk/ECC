@@ -66,11 +66,11 @@
 <div class="login-container">
     <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
     <h2>Iniciar Sesión</h2>
-    <form>
-        <input type="text" placeholder="Usuario" required>
-        <input type="password" placeholder="Contraseña" required>
+    <form action="{{ url_for('login') }}" method="POST">
+        <input type="text" name="correo" placeholder="Correo electrónico" required>
+        <input type="password" name="contraseña" placeholder="Contraseña" required>
         <button type="submit">Iniciar Sesión</button>
-    </form>
+    </form>    
 
     <!-- Enlace o botón para redirigir a la página de registro -->
     <a href="{{ url_for('register') }}" class="register-link">Registrarse</a>
